@@ -75,14 +75,18 @@ let searchimp = document.getElementById('searchTxt');
 searchimp.addEventListener("input", function () {
 
     let inputVal = search.value.toLowerCase();
+    let inputValu = search.value.toUpperCase();
     // console.log('Input event fired!', inputVal);
     let noteCards = document.getElementsByClassName('noteCard');
-    Array.from(noteCards).forEach(function (element) {
+    Array.from(noteCards).forEach(function(element){
         let cardTxt = element.getElementsByTagName("p")[0].innerText;
-        if (cardTxt.includes(inputVal)) {
+        if(cardTxt.includes(inputVal)){
             element.style.display = "block";
         }
-        else {
+        else if(cardTxt.includes(inputValu)){
+            element.style.display = "block";
+        }
+        else{
             element.style.display = "none";
         }
         // console.log(cardTxt);
